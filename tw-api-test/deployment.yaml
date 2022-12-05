@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tw-api-test
+spec:
+  replicas: 3
+  revisionHisotryLimit: 3
+  selector:
+    matchLabels:
+     app: tw-api-test
+  template:
+    metadata:
+      labels:
+        app: tw-api-test
+    spec:
+      containers:
+      - image: docker.io/runaoh/test:latest
+        name: tw-api-test
+        ports:
+        - containerPort: 80
+
+ 
